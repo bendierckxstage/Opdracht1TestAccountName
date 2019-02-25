@@ -9,23 +9,22 @@ namespace Opdracht1TestAccountName
     public class Person
     {
         public string firstName { get; set; }
-        private string lastName;
+        private string LastName;
 
-        public string MyProperty
+        public string lastName
         {
-            get { return lastName; }
+            get { return LastName; }
             set
             {
                 string[] names = value.Split(' ');
                 if(names.Count() >= 2)
                 {
-                    lastName = names[names.Count() - 1];
+                    LastName = names[names.Count() - 1];
                 }
                 else
                 {
-                    lastName = value;
+                    LastName = value;
                 }
-                lastName = value;
             }
         }
 
