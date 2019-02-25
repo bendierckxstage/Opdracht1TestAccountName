@@ -44,7 +44,7 @@ namespace Opdracht1TestAccountName
                 int counter = 0;
                 while (account.Length < 6)
                 {
-                    account += lastName[counter-1].ToString().ToLower();
+                    account += lastName[counter].ToString().ToLower();
                     counter--;
                     if (counter == lastName.Length)
                     {
