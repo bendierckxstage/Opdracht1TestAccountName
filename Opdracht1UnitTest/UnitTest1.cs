@@ -9,7 +9,7 @@ namespace Opdracht1UnitTest
     {
         Person person = new Person();
 
-        //tests if the person receives 2 names and places them in person
+        //tests if the person receives 2 names and places them in person.
         [TestMethod]
         public void TestPersonGet2Names()
         {
