@@ -9,7 +9,26 @@ namespace Opdracht1TestAccountName
     public class Person
     {
         public string firstName { get; set; }
-        public string lastName { get; set; }
+        private string lastName;
+
+        public string MyProperty
+        {
+            get { return lastName; }
+            set
+            {
+                string[] names = value.Split(' ');
+                if(names.Count() >= 2)
+                {
+                    lastName = names[names.Count() - 1];
+                }
+                else
+                {
+                    lastName = value;
+                }
+                lastName = value;
+            }
+        }
+
 
         public string generateAccount()
         {
@@ -23,14 +42,14 @@ namespace Opdracht1TestAccountName
             {
                 account += lastName.Substring(0, lastName.Length).ToLower();
                 account += firstName.Substring(0, 1).ToLower();
-                int counter = lastName.Length;
+                int counter = 0;
                 while (account.Length < 6)
                 {
                     account += lastName[counter-1].ToString().ToLower();
                     counter--;
-                    if (counter == 0)
+                    if (counter == lastName.Length)
                     {
-                        counter = lastName.Length;
+                        counter = 0;
                     }
                 }
             }

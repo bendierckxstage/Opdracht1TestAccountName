@@ -53,5 +53,15 @@ namespace Opdracht1UnitTest
             string actualOutput = person.generateAccount();
             Assert.AreEqual("landuw", actualOutput);
         }
+
+        //Tests where there is a space in the name.
+        [TestMethod]
+        public void TestNamesWithSpacesGetCorrectOutputFromGenerateAccount()
+        {
+            person.firstName = "Joren";
+            person.lastName = "Van Camp";
+            string actualOutput = person.generateAccount();
+            Assert.AreEqual("campjc", actualOutput);
+        }
     }
 }
