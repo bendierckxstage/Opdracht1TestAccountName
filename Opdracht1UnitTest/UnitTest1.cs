@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Opdracht1TestAccountName;
 
@@ -9,6 +9,7 @@ namespace Opdracht1UnitTest
     {
         Person person = new Person();
 
+        //tests if the person receives 2 names and places them in person
         [TestMethod]
         public void TestPersonGet2Names()
         {
@@ -20,20 +21,37 @@ namespace Opdracht1UnitTest
             Assert.AreEqual("Beck", person.lastName);
         }
 
+        //Tests if generateAccount returns a 6 chars long.
         [TestMethod]
         public void TestPersonGenerateAccountIs6CharsLong()
         {
+            person.firstName = "Wim";
+            person.lastName = "Beck";
             string actualOutput = person.generateAccount();
-            int ActualLenght = actualOutput.Length;
-            Assert.AreEqual(ActualLenght, 6);
+            int actualLength = actualOutput.Length;
+            Assert.AreEqual(6, actualLength);
         }
 
+        //Tests if the generateAccount returns beckwb when Wim Beck is entered.
         [TestMethod]
         public void TestPersonGenerateAccountIsCorrectOutput()
         {
+            person.firstName = "Wim";
+            person.lastName = "Beck";
             string actualOutput = person.generateAccount();
             string expectedOutput = "beckwb";
             Assert.AreEqual(expectedOutput, actualOutput);
+        }
+
+        //Tests if the generateAccount function returns the correct account (3 letters from lastName
+        //with initials).
+        [TestMethod]
+        public void TestOtherNamesGenerateAccountGiveCorrectOutput()
+        {
+            person.firstName = "Wouter";
+            person.lastName = "Landuyt";
+            string actualOutput = person.generateAccount();
+            Assert.AreEqual("landuw", actualOutput);
         }
     }
 }
