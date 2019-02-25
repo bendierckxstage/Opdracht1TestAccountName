@@ -35,5 +35,14 @@ namespace Opdracht1UnitTest
             string expectedOutput = "beckwb";
             Assert.AreEqual(expectedOutput, actualOutput);
         }
+
+        [TestMethod]
+        public void TestotherNamesGenerateAccountGiveCorrectOutput()
+        {
+            person.firstName = "Wouter";
+            person.lastName = "Landuyt";
+            string actualOutput = person.generateAccount();
+            Assert.AreEqual("landuwl", actualOutput);
+        }
     }
 }
